@@ -4,6 +4,9 @@ class orderModel
 {
     private $ordersData;
 
+    /**
+     * Read csv file
+     */
     function __construct()
     {
         $row = 1;
@@ -25,6 +28,9 @@ class orderModel
         }
     }
 
+    /**
+     * return all the data
+     */
     function getAll()
     {
         return $this->ordersData;
