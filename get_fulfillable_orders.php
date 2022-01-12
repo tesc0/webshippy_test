@@ -5,16 +5,15 @@ if ($argc != 2) {
     exit(1);
 }
 
-require_once __DIR__ . '/classes/orderController.php';
-
-$orderController = new orderController();
-
 //check for input data
 $stockInput = json_decode($argv[1]);
 if(empty($stockInput)) {
     echo 'Invalid json!';
     exit(1);
 }
+
+require_once __DIR__ . '/classes/orderController.php';
+$orderController = new orderController();
 
 //filter the array
 $orderController->filterOrderDataByStock($stockInput);
