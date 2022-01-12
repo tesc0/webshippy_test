@@ -1,5 +1,5 @@
 <?php
-
+//how many parameters have been added
 if ($argc != 2) {
     echo 'Ambiguous number of parameters!';
     exit(1);
