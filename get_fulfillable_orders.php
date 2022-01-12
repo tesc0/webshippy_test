@@ -5,7 +5,7 @@ if ($argc != 2) {
     exit(1);
 }
 
-require_once __DIR__ . '/class/orderController.php';
+require_once __DIR__ . '/classes/orderController.php';
 
 $orderController = new orderController();
 
@@ -20,3 +20,5 @@ if(empty($stockInput)) {
 $orderController->filterOrderDataByStock($stockInput);
 //sort by priority and date
 $orderController->sortOrderData();
+//show
+$orderController->printOutput();

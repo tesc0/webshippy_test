@@ -57,4 +57,40 @@ class orderController
         }
         $this->orderDataAll = array_values($this->orderDataAll);
     }
+
+    /**
+     * create the output for command line
+     */
+    public function printOutput()
+    {
+        foreach ($this->ordersHeader as $h) {
+            echo str_pad($h, 20);
+        }
+        echo "\n";
+        foreach ($this->ordersHeader as $h) {
+            echo str_repeat('=', 20);
+        }
+        echo "\n";
+
+        foreach ($this->orderDataAll as $item) {            
+            foreach ($this->ordersHeader as $h) {
+                if ($h == 'priority') {
+                    if ($item['priority'] == 1) {
+                        $text = 'low';
+                    } else {
+                        if ($item['priority'] == 2) {
+                            $text = 'medium';
+                        } else {
+                            $text = 'high';
+                        }
+                    }
+                    echo str_pad($text, 20);
+                } else {
+                    echo str_pad($item[$h], 20);
+                }
+            }
+            echo "\n";
+            
+        }
+    }
 }
